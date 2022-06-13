@@ -53,6 +53,7 @@ _G.StartGdbSession = function()
   -- start gdb sessoin
   local exec_file = vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
   vim.api.nvim_command(":GdbStart gdb -q " .. exec_file)
+  vim.api.nvim_command("NvimTreeClose")
 end
 
 _G.CreateWatch = function()
