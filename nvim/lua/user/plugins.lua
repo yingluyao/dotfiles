@@ -84,6 +84,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons" -- icons
 
   -- Telescope
+  use "nvim-telescope/telescope-live-grep-args.nvim"
   use {
     "nvim-telescope/telescope.nvim",
     tag = "nvim-0.6",
@@ -99,8 +100,8 @@ return packer.startup(function(use)
   -- }
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-rg.nvim"
-  use "MattesGroeger/vim-bookmarks"
-  use "tom-anders/telescope-vim-bookmarks.nvim"
+  -- use "MattesGroeger/vim-bookmarks"
+  -- use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-dap.nvim"
 
   -- Treesittetr
@@ -114,9 +115,9 @@ return packer.startup(function(use)
     commit = "c81382328ad47c154261d1528d7c921acad5eae5",
   } -- enhance texetobject selection
   use "romgrk/nvim-treesitter-context" -- show class/function at the top
-  -- use "m-demare/hlargs.nvim"
-  -- use "SmiteshP/nvim-gps" -- statusline shows class structure
-  use "andymass/vim-matchup"
+  -- -- use "m-demare/hlargs.nvim"
+  -- -- use "SmiteshP/nvim-gps" -- statusline shows class structure
+  -- use "andymass/vim-matchup"
   -- use {
   --   "abecodes/tabout.nvim",
   --   wants = { 'vim-treesitter' }, -- or require if not used so far
@@ -152,9 +153,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
   -- use "quangnguyen30192/cmp-nvim-tags"
-  use "jsfaint/gen_tags.vim"
-  use "ray-x/cmp-treesitter"
-  use "f3fora/cmp-spell" -- spell check
+  -- use "jsfaint/gen_tags.vim"
+  -- use "ray-x/cmp-treesitter"
+  -- use "f3fora/cmp-spell" -- spell check
   -- use "github/copilot.vim"  -- Copilot setup,
   -- use {
   --   "tzachar/cmp-tabnine", -- use ":CmpTabnineHub" command to login
@@ -163,7 +164,7 @@ return packer.startup(function(use)
   -- }
   use "ethanholz/nvim-lastplace" -- auto return back to the last modified positon when open a file
   -- use "BurntSushi/ripgrep" -- ripgrep
-  use "nvim-pack/nvim-spectre" -- search and replace pane
+  -- use "nvim-pack/nvim-spectre" -- search and replace pane
   -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   -- use "code-biscuits/nvim-biscuits" -- AST enhance, require treesitter
   use "tpope/vim-repeat" --  . command enhance
@@ -171,8 +172,8 @@ return packer.startup(function(use)
   -- use "terryma/vim-expand-region" -- expand/shrink region by +/-
   -- use "meain/vim-printer"
 
-  use "akinsho/toggleterm.nvim" -- toggle terminal
-  use "ahmedkhalf/project.nvim" -- project manager
+  -- use "akinsho/toggleterm.nvim" -- toggle terminal
+  -- use "ahmedkhalf/project.nvim" -- project manager
   use "lukas-reineke/indent-blankline.nvim" -- indent blankline
   use "folke/which-key.nvim" -- which  key
   use {
@@ -199,6 +200,10 @@ return packer.startup(function(use)
   -- use "mfussenegger/nvim-dap-python"    -- debug python
   -- use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
+  use {
+    "sakhnik/nvim-gdb",
+    run = "./install.sh"
+  }
 
   -- Git
   use {
@@ -216,7 +221,6 @@ return packer.startup(function(use)
   -- use "navarasu/onedark.nvim"
   use({
     "catppuccin/nvim",
-    as = "catppuccin"
   })
   use {
     "projekt0n/github-nvim-theme",
@@ -224,7 +228,10 @@ return packer.startup(function(use)
   }
 
   -- use "folke/tokyonight.nvim"
-  use "kyazdani42/nvim-tree.lua" -- file explore
+  use {
+    "kyazdani42/nvim-tree.lua",
+    commit = "6abc87b1d92fc8223f1e374728ea45c848bfdf6d"
+  } -- file explore
   use {
     "akinsho/bufferline.nvim", -- tab
     tag = "v1.2.0",
@@ -240,7 +247,7 @@ return packer.startup(function(use)
   --   disable = true,
   -- }
   use "kevinhwang91/nvim-bqf" -- better quick fix
-  use "RRethy/vim-illuminate" -- highlight undercursor word
+  use "RRethy/vim-illuminate" -- highlight undercursor word   --  NOTE: 可能造成卡顿
   -- use "lewis6991/spellsitter.nvim" -- spell checker
   use "folke/todo-comments.nvim" -- todo comments
   -- use "liuchengxu/vista.vim"     -- outline
@@ -249,7 +256,8 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua" -- show color
   use "folke/trouble.nvim"
   use "j-hui/fidget.nvim" -- show lsp progress
-  use "sindrets/winshift.nvim" -- rerange window layout
+  -- use "sindrets/winshift.nvim" -- rerange window layout
+  use "simeji/winresizer"
   -- litee family
   use {
     "ldelossa/litee.nvim",
@@ -262,7 +270,7 @@ return packer.startup(function(use)
 
   -- tools
   -- use "cdelledonne/vim-cmake"
-  use "aserowy/tmux.nvim"
+  use "aserowy/tmux.nvim"   -- NOTE: 可能造成卡顿
   use "ravenxrz/neovim-cmake"
   use {
     "skanehira/preview-markdown.vim",
@@ -286,8 +294,6 @@ return packer.startup(function(use)
   use "Pocco81/AutoSave.nvim"
   use "djoshea/vim-autoread"
   -- use "chipsenkbeil/distant.nvim"
-  
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

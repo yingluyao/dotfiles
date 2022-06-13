@@ -27,6 +27,9 @@ M.setup = function()
     "nvim_context_vt",
     "filetype",
     "distant",
+    "winshift",
+    "toggleterm",
+    "nvim-spectre",
   }
 
   local helper_set = {}

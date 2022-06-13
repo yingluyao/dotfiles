@@ -32,7 +32,8 @@ keymap("n", "<C-W>m", ":WinShift<cr>", opts)
 
 -- FileExpoler
 -- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<leader>f", ":Format<cr>", opts)
+keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+keymap('v', '<leader>f', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 -- no highlight
 keymap("n", "<leader>l", ":nohl<cr>", opts)
 -- save buffer
@@ -57,10 +58,10 @@ keymap("n", "J", "mzJ`z", opts)
 -- keymap("n", "k", "kzz", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-Up>", ":resize -2<CR>", opts)
+keymap("n", "<A-Down>", ":resize +2<CR>", opts)
+keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 -- keymap("n", "R", ":bnext<CR>", opts)
@@ -113,9 +114,9 @@ keymap("v", "p", '"_dP', opts)
 -- keymap("n", "<Space>f", "<cmd>lua require('telescope').extensions.frecency.frecency(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 -- keymap("n", "<Space>F", "<cmd>Telescope live_grep<cr>", opts)
 
--- bookmark's
-keymap("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opts)
-keymap("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opts)
+-- bookmarks
+-- keymap("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opts)
+-- keymap("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opts)
 
 
 keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
@@ -128,7 +129,7 @@ keymap("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'user.dap.dap-util'.store_breakpoints(true)<cr>", opts)
 keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts)
 -- keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts)
-keymap("n", "<leader>dl", "lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap('n', '<F10>', '<cmd>lua require"user.dap.dap-util".reload_continue()<CR>', opts)
 keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<cr>", opts)
 keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
