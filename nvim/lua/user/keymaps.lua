@@ -152,8 +152,8 @@ keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
 keymap("n", "gcf", "<cmd>Dox<cr>", opts)
 
 -- sniprun
-keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
-keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
+-- keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
+-- keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
 
 -- spell check
 vim.cmd(
