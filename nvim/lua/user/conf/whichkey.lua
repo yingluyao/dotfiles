@@ -107,9 +107,9 @@ local mappings = {
     -- "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
     "Find Symobls",
   },
-  ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  -- ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
-  ["P"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
+  ["p"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
 
   ["t"] = {
     "<cmd>UltestSummary<CR>", "Unit Test"
