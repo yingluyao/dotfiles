@@ -8,7 +8,7 @@ tmux.setup({
   copy_sync = {
     -- enables copy sync and overwrites all register actions to
     -- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
-    enable = true,
+    enable = false,
     -- ignore specific tmux buffers e.g. buffer0 = true to ignore the
     -- first buffer or named_buffer_name = true to ignore a named tmux
     -- buffer with name named_buffer_name :)
@@ -30,7 +30,7 @@ tmux.setup({
     -- syncs deletes with tmux clipboard as well, it is adviced to
     -- do so. Nvim does not allow syncing registers 0 and 1 without
     -- overwriting the unnamed register. Thus, ddp would not be possible.
-    sync_deletes = false,
+    sync_deletes = true,
 
     -- syncs the unnamed register with the first buffer entry from tmux.
     sync_unnamed = true,
