@@ -30,7 +30,7 @@ tmux.setup({
     -- syncs deletes with tmux clipboard as well, it is adviced to
     -- do so. Nvim does not allow syncing registers 0 and 1 without
     -- overwriting the unnamed register. Thus, ddp would not be possible.
-    sync_deletes = true,
+    sync_deletes = false,
 
     -- syncs the unnamed register with the first buffer entry from tmux.
     sync_unnamed = true,
