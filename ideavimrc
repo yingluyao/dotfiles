@@ -84,8 +84,8 @@ map <C-l> <C-W>l
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
-nnoremap j jzz
-nnoremap k kzz
+" nnoremap j jzz
+" nnoremap k kzz
 
 " Moving text
 vnoremap J :m '>+1<CR>gv=gv
@@ -121,6 +121,14 @@ nnoremap <Leader>r :action SaveAll<CR>:action RunClass<CR>
 nnoremap <Leader>fp :action ShowFilePath<CR>
 " 隐藏激活窗口
 nnoremap <Leader>h :action HideActiveWindow<CR>
+
+" 查看函数调用链
+nnoremap <Leader>in :action CallHierarchy<CR>
+" 查询文件
+nnoremap <Space>f :action GotoFile<CR>
+" 查询Symbol
+nnoremap <Space>S :action GotoSymbol<CR>
+
 
 " 中英文自动切换
 set keep-english-in-normal
