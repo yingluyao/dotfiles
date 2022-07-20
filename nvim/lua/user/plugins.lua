@@ -100,8 +100,8 @@ return packer.startup(function(use)
   -- }
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-rg.nvim"
-  -- use "MattesGroeger/vim-bookmarks"
-  -- use "tom-anders/telescope-vim-bookmarks.nvim"
+  use "MattesGroeger/vim-bookmarks"
+  use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-dap.nvim"
 
   -- Treesittetr
@@ -163,7 +163,7 @@ return packer.startup(function(use)
   --   run = 'bash ./install.sh',
   -- }
   use "ethanholz/nvim-lastplace" -- auto return back to the last modified positon when open a file
-  -- use "BurntSushi/ripgrep" -- ripgrep
+  use "BurntSushi/ripgrep" -- ripgrep
   -- use "nvim-pack/nvim-spectre" -- search and replace pane
   -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   -- use "code-biscuits/nvim-biscuits" -- AST enhance, require treesitter
@@ -172,7 +172,7 @@ return packer.startup(function(use)
   -- use "terryma/vim-expand-region" -- expand/shrink region by +/-
   -- use "meain/vim-printer"
 
-  -- use "akinsho/toggleterm.nvim" -- toggle terminal
+  use "akinsho/toggleterm.nvim" -- toggle terminal
   -- use "ahmedkhalf/project.nvim" -- project manager
   use "lukas-reineke/indent-blankline.nvim" -- indent blankline
   use "folke/which-key.nvim" -- which  key
