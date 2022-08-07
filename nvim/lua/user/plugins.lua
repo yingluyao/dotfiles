@@ -221,6 +221,7 @@ return packer.startup(function(use)
   -- use "navarasu/onedark.nvim"
   use({
     "catppuccin/nvim",
+    as = "catppuccin"
   })
   use {
     "projekt0n/github-nvim-theme",
