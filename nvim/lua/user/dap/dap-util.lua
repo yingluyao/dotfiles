@@ -1,6 +1,10 @@
 local M = {}
 local dap = require 'dap'
 
+local function is_windows()
+    return "\\" == package.config:sub(1,1)
+end
+
 -- refresh config
 M.reload_continue = function()
   package.loaded['user.dap.dap-config'] = nil
@@ -60,7 +64,13 @@ end
 
 
 -- persist breakpoint
-local bp_base_dir = os.getenv("HOME") .. "/.cache/dap-breakpoint/"
+local bp_base_dir = nil
+if is_windows() then
+  bp_base_dir = os.getenv("LOCALAPPDATA") .. "/.cache/dap-breakpoint/"
+else
+  bp_base_dir = os.getenv("HOME") .. "/.cache/dap-breakpoint/"
+end
+
 local breakpoints = require('dap.breakpoints')
 local utils = require("user.utils")
 
