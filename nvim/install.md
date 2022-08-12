@@ -1,3 +1,10 @@
+# package manager
+packer.nvim
+## Cannot check out github
+1. change the line: default_url_format = 'git@github.com:%s.git'
+2. :PackerCompile
+3. check the outfile at compile_path = util.join_paths(vim.fn.stdpath('config'), 'plugin', 'packer_compiled.lua'),
+4. :PackerSync or :PackerInstall [your-plugin]
 
 #nerd font
 
