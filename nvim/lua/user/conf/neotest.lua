@@ -1,0 +1,6 @@
+-- require("neotest").setup({
+--   adapters = {
+--     require("neotest-vim-test")({ ignore_filetypes = { "python", "lua" } }),
+--     require("neotest-vim-test")({ allow_file_types = { "cpp", "c" } }),
+--   }
+-- })

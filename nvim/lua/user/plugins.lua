@@ -287,6 +287,14 @@ return packer.startup(function(use)
   -- use "AckslD/nvim-neoclip.lua"
   use "vim-test/vim-test"
   use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim"
+    }
+  }
+  use {
     "rcarriga/vim-ultest",
     run = ":UpdateRemotePlugins"
   }
