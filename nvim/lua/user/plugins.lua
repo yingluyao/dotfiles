@@ -307,6 +307,9 @@ return packer.startup(function(use)
   use "ravenxrz/vim-local-history"
   -- use "henriquehbr/nvim-startup.lua"
   -- use "AckslD/nvim-neoclip.lua"
+
+  -- [[ TEST ]]
+  use { "alepez/vim-gtest" }                         -- select and run GoogleTest
   use "vim-test/vim-test"
   use {
     "nvim-neotest/neotest",

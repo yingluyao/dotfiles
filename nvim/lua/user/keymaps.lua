@@ -150,8 +150,13 @@ keymap('n', '<leader>j', ']c', opts)
 keymap('n', '<leader>k', '[c', opts)
 
 -- unit test
-keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
-keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
+-- keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
+-- keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
+keymap("n", "<leader>Tn", ":GTestRunNewTest", opts)
+keymap("n", "<leader>Tr", ":GTestRunUnderCursor", opts)
+keymap("n", "<leader>Tt", ":GTestToggleEnabled", opts)
+keymap("n", "<leader>Tp", ":GTestPrev", opts)
+keymap("n", "<leader>Tn", ":GTestNext", opts)
 
 -- comment
 keymap("n", "gcf", "<cmd>Dox<cr>", opts)
