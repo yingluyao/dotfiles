@@ -75,20 +75,38 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "lewis6991/impatient.nvim" -- Speed up loading Lua modules    TODO: figure out how to use this
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "rcarriga/nvim-notify" -- notify
-  use "kyazdani42/nvim-web-devicons" -- icons
+  use "wbthomason/packer.nvim"                       -- package manage
 
-  -- Telescope
-  use "nvim-telescope/telescope-live-grep-args.nvim"
+  -- [[ Startup ]]
+  use "lewis6991/impatient.nvim"                     -- speed up loading Lua modules
+  use "nvim-lua/popup.nvim"                          -- popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"                        -- useful lua functions used by lots of plugins
+  use "rcarriga/nvim-notify"                         -- notify
+  use "kyazdani42/nvim-web-devicons"                 -- icons
+
+  -- [[ Theme ]]
+  use { 'mhinz/vim-startify' }                       -- start screen
+  use { 'DanilaMihailov/beacon.nvim' }               -- cursor jump
   use {
-    "nvim-telescope/telescope.nvim",
-    tag = "nvim-0.6",
+    'nvim-lualine/lualine.nvim',                     -- statusline
+    requires = {'kyazdani42/nvim-web-devicons',
+                opt = true}
   }
+  use { 'Mofiqul/dracula.nvim' }                     -- colorscheme
+
+  -- [[ File Brower ]]
+  use {
+    'kyazdani42/nvim-tree.lua',                      -- filesystem navigation
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+  use { 'mbbill/undotree' }                          -- undo history
+
+  -- [[ IDE ]]
+  use {
+    'nvim-telescope/telescope.nvim',                 -- fuzzy finder
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use "nvim-telescope/telescope-live-grep-args.nvim"
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
@@ -103,6 +121,15 @@ return packer.startup(function(use)
   use "MattesGroeger/vim-bookmarks"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-dap.nvim"
+
+  use { 'majutsushi/tagbar' }                        -- code structure
+
+  -- [[ Git ]]
+  use { 'tpope/vim-fugitive' }                       -- git integration
+  use { 'junegunn/gv.vim' }                          -- commit history
+
+  -- [[ Terminal ]]
+  use 'voldikss/vim-floaterm'
 
   -- Treesittetr
   use {
@@ -137,9 +164,10 @@ return packer.startup(function(use)
   -- }
   -- use { 'ray-x/navigator.lua' } -- super powerful plugin  for code navigation
 
-  -- Editor enhance
+  --  [[ Editor enhance ]]
+  use "tpope/vim-surround"                           -- vim surround
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "terrortylor/nvim-comment"
+  use { "terrortylor/nvim-comment" }                 -- toggle comments
   use "Shatur/neovim-session-manager"
   -- cmp plugins
   use {
@@ -168,7 +196,6 @@ return packer.startup(function(use)
   -- use "haringsrob/nvim_context_vt" -- show if, for, function... end as virtual text
   -- use "code-biscuits/nvim-biscuits" -- AST enhance, require treesitter
   use "tpope/vim-repeat" --  . command enhance
-  use "tpope/vim-surround" -- vim surround
   -- use "terryma/vim-expand-region" -- expand/shrink region by +/-
   -- use "meain/vim-printer"
 
@@ -230,15 +257,10 @@ return packer.startup(function(use)
 
   -- use "folke/tokyonight.nvim"
   use {
-    "kyazdani42/nvim-tree.lua",
-    commit = "6abc87b1d92fc8223f1e374728ea45c848bfdf6d"
-  } -- file explore
-  use {
     "akinsho/bufferline.nvim", -- tab
     tag = "v1.2.0",
   }
   -- use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim" -- status line
   use "goolord/alpha-nvim" -- welcome page
   -- use "startup-nvim/startup.nvim"     -- welcome page
 
@@ -303,6 +325,9 @@ return packer.startup(function(use)
   use "Pocco81/AutoSave.nvim"
   use "djoshea/vim-autoread"
   -- use "chipsenkbeil/distant.nvim"
+
+  -- [[ WIKI ]]
+  use { 'vimwiki/vimwiki' }                          -- a personal wiki
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

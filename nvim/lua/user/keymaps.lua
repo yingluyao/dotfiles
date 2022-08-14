@@ -2,10 +2,14 @@ local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
 
--- Shorten function name
+-- keymap(mode, sequence, command, options)
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
+-- reload config
+keymap("n", "<leader>ss", ":luafile %<CR>", {})
+-- use jk instead of ESCAPE to return from insert mode to normal mode
+keymap("i", "jk", "<Esc>", {})
+-- use space as leader key
 keymap("", ";", "<Nop>", opts)
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
@@ -38,6 +42,7 @@ keymap('v', '<leader>f', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opt
 keymap("n", "<leader>l", ":nohl<cr>", opts)
 -- save buffer
 keymap("n", "<leader>w", ":w<cr>", opts)
+keymap("n", "<C-s>", ":w<cr>", opts)
 -- exit cur window
 keymap("n", "<leader>q", ":q<cr>", opts)
 -- delete cur buffer
@@ -163,6 +168,17 @@ vim.cmd(
 
 -- gtags
 -- find functions calling this function
-keymap("n", "<leader>U", ":lua require('user.utils').GtagsRefernce()<cr>", opts)
+-- keymap("n", "<leader>U", ":lua require('user.utils').GtagsRefernce()<cr>", opts)
 -- find definition
-keymap("n", "<leader>T", ":lua require('user.utils').GtagsText()<cr>", opts)
+-- keymap("n", "<leader>T", ":lua require('user.utils').GtagsText()<cr>", opts)
+
+-- floaterm
+keymap("n", "<space>tt", ":FloatermNew<CR>", opts)
+keymap("t", "<space>T", "<C-\\><C-n>:FloatermToggle<CR>", opts)
+keymap("t", "<space>k", "<C-\\><C-n>:FloatermKill<CR>", opts)
+keymap("t", "<space>K", "<C-\\><C-n>:FloatermKill!<CR>", opts)
+keymap("t", "<space>p", "<C-\\><C-n>:FloatermPrev<CR>", opts)
+keymap("t", "<space>n", "<C-\\><C-n>:FloatermNext<CR>", opts)
+
+-- undotree
+keymap("n", "<space>uu", ":UndotreeToggle<CR>", opts)
