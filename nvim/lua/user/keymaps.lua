@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- reload config
-keymap("n", "<leader>ss", ":luafile %<CR>", {})
+keymap("n", "<leader><leader>s", ":luafile %<CR>", {})
 -- use jk instead of ESCAPE to return from insert mode to normal mode
 keymap("i", "jk", "<Esc>", {})
 -- use space as leader key
