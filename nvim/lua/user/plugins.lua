@@ -129,7 +129,7 @@ return packer.startup(function(use)
   use { 'junegunn/gv.vim' }                          -- commit history
 
   -- [[ Terminal ]]
-  use 'voldikss/vim-floaterm'
+  use { 'voldikss/vim-floaterm' }                    -- floating/popup window
 
   -- Treesittetr
   use {

@@ -275,7 +275,7 @@ local mappings = {
   },
 
 
-  t = {
+  z = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
