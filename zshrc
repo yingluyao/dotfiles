@@ -58,3 +58,9 @@ if [ -f ~/.shell_private ]; then
     source ~/.shell_private
 fi
 
+# oh-my-zsh
+source ~/.zsh/oh_my_zsh.zsh
+
+set PATH="/usr/local/lib":$PATH
+
+export PATH=/usr/local/mongodb/bin:$PATH
