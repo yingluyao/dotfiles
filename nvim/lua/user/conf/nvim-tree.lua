@@ -92,6 +92,7 @@ nvim_tree.setup({
         { key = { "l", "<CR>", "o" }, action = "edit" },
         { key = "h", action = "close_node" },
         { key = "v", action = "vsplit" },
+        { key = "s", action = "split" },
         { key = "O", action = "cd" },
         { key = "H", action = "toggle_git_ignored" },
         { key = "D", action = "toggle_dotfiles" },
