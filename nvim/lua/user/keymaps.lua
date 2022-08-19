@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- reload config
-keymap("n", "<leader><leader>s", ":luafile %<CR>", {})
+keymap("n", "<leader>R", ":luafile %<CR>", {})
 -- use jk instead of ESCAPE to return from insert mode to normal mode
 keymap("i", "jk", "<Esc>", {})
 -- use space as leader key
@@ -41,8 +41,8 @@ keymap('v', '<leader>f', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opt
 -- no highlight
 keymap("n", "<leader>l", ":nohl<cr>", opts)
 -- save buffer
-keymap("n", "<leader>w", ":w<cr>", opts)
 keymap("n", "<C-s>", ":w<cr>", opts)
+keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
 -- exit cur window
 keymap("n", "<leader>q", ":q<cr>", opts)
 -- delete cur buffer
