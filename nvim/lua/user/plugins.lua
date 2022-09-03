@@ -75,7 +75,7 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use "wbthomason/packer.nvim"                       -- package manage
+  use "wbthomason/packer.nvim"                       -- package manager
 
   -- [[ Startup ]]
   use "lewis6991/impatient.nvim"                     -- speed up loading Lua modules
@@ -101,7 +101,22 @@ return packer.startup(function(use)
   }
   use { 'mbbill/undotree' }                          -- undo history
 
-  -- [[ IDE ]]
+  -- [[ Auto Completion ]]
+  use "hrsh7th/nvim-cmp"                             -- The completion plugin
+  use "hrsh7th/cmp-nvim-lsp"                         -- lsp completions
+  use "hrsh7th/cmp-buffer"                           -- buffer completions
+  use "hrsh7th/cmp-path"                             -- path completions
+  use "hrsh7th/cmp-cmdline"                          -- cmdline completions
+  use "hrsh7th/cmp-nvim-lua"
+
+  use "saadparwaiz1/cmp_luasnip"                     -- snippet completions
+  use "L3MON4D3/LuaSnip"                             -- snippet engine
+  -- use 'hrsh7th/cmp-vsnip'
+  -- use 'hrsh7th/vim-vsnip'
+  use "rafamadriz/friendly-snippets"                 -- a bunch of snippets to use
+
+  use 'onsails/lspkind-nvim'                         -- vscode-like pictograms for completion items
+
   use {
     'nvim-telescope/telescope.nvim',                 -- fuzzy finder
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -164,22 +179,12 @@ return packer.startup(function(use)
   -- }
   -- use { 'ray-x/navigator.lua' } -- super powerful plugin  for code navigation
 
-  --  [[ Editor enhance ]]
+  --  [[ Editor Enhance ]]
   use "tpope/vim-surround"                           -- vim surround
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use { "terrortylor/nvim-comment" }                 -- toggle comments
   use "Shatur/neovim-session-manager"
-  -- cmp plugins
-  use {
-    "hrsh7th/nvim-cmp",
-    -- commit = "4f1358e659d51c69055ac935e618b684cf4f1429",
-  } -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
+
   -- use "quangnguyen30192/cmp-nvim-tags"
   -- use "jsfaint/gen_tags.vim"
   -- use "ray-x/cmp-treesitter"
@@ -212,10 +217,6 @@ return packer.startup(function(use)
 
   -- use "nathom/filetype.nvim"
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
   -- Debugger
   use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
   use {
@@ -224,7 +225,7 @@ return packer.startup(function(use)
   }
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
-  -- use "mfussenegger/nvim-dap-python"    -- debug python
+  use "mfussenegger/nvim-dap-python"    -- debug python
   -- use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
   use {
