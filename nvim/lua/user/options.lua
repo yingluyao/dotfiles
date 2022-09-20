@@ -12,7 +12,7 @@ local options = {
   sidescrolloff = 4,                       -- keep 8 width offset from left and right
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,                            -- display lines as one long line
+  wrap = true,                             -- display lines as one long line
 
   -- [[ File ]]
   backup = false,                          -- creates a backup file
