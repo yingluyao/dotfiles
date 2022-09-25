@@ -1,10 +1,6 @@
 local M = {}
 local dap = require 'dap'
 
-local function is_windows()
-    return "\\" == package.config:sub(1,1)
-end
-
 -- refresh config
 M.reload_continue = function()
   package.loaded['user.dap.dap-config'] = nil
@@ -65,7 +61,7 @@ end
 
 -- persist breakpoint
 local bp_base_dir = nil
-if is_windows() then
+if is_windows_os then
   bp_base_dir = os.getenv("LOCALAPPDATA") .. "/.cache/dap-breakpoint/"
 else
   bp_base_dir = os.getenv("HOME") .. "/.cache/dap-breakpoint/"
@@ -90,8 +86,17 @@ function M.store_breakpoints()
 
   -- build bps json file
   local buf_name = vim.api.nvim_buf_get_name(0)
-  buf_name = buf_name:gsub("/", "-")
-  local fp = io.open(bp_base_dir .. buf_name:sub(2, #buf_name) .. '.json', 'w')
+  if is_windows_os then
+    buf_name = buf_name:gsub("\\", "-")
+    json_name = bp_base_dir .. buf_name:sub(1,1) .. buf_name:sub(3, #buf_name) .. '.json'
+  else
+    buf_name = buf_name:gsub("/", "-")
+    json_name = bp_base_dir .. buf_name:sub(2, #buf_name) .. '.json'
+  end
+  local fp = io.open(json_name, 'w')
+  if fp == nil then
+      return
+  end
 
   -- write bps into json file
   local json_str = vim.fn.json_encode(bps)
@@ -104,8 +109,14 @@ end
 function M.load_breakpoints()
   -- build bps json file
   local buf_name = vim.api.nvim_buf_get_name(0)
-  buf_name = buf_name:gsub("/", "-")
-  local fp = io.open(bp_base_dir .. buf_name:sub(2, #buf_name) .. '.json', 'r')
+  if is_windows_os then
+    buf_name = buf_name:gsub("\\", "-")
+    json_name = bp_base_dir .. buf_name:sub(1,1) .. buf_name:sub(3, #buf_name) .. '.json'
+  else
+    buf_name = buf_name:gsub("/", "-")
+    json_name = bp_base_dir .. buf_name:sub(2, #buf_name) .. '.json'
+  end
+  local fp = io.open(json_name, 'r')
   if fp == nil then
     return
   end

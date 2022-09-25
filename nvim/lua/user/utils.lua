@@ -1,5 +1,10 @@
 local M = {}
 
+M.is_windows_os = function()
+  local delimiter = package.config:sub(1,1)
+  return delimiter == "\\"
+end
+
 M.starts_with = function(str, start)
   return str:sub(1, #start) == start
 end

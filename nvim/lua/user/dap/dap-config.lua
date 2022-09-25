@@ -1,10 +1,12 @@
 local M = {}
 
 local function config_dapi_and_sign()
-  local dap_install = require "dap-install"
-  dap_install.setup {
-    installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
-  }
+  if not is_windows_os then
+    local dap_install = require "dap-install"
+    dap_install.setup {
+        installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
+    }
+  end
 
   local dap_breakpoint = {
     error = {
@@ -62,19 +64,23 @@ end
 
 local function config_debuggers()
   local dap = require "dap"
+  dap.set_log_level("DEBUG")
+
   -- TODO: wait dap-ui for fixing temrinal layout
   -- the "30" of "30vsplit: doesn't work
   dap.defaults.fallback.terminal_win_cmd = '30vsplit new' -- this will be overrided by dapui
-  dap.set_log_level("DEBUG")
 
   -- load from json file
   require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'cpp' } })
-  -- config per launage
-  -- require("user.dap.di-go")
 
-  require("user.dap.dap-cpp")
-  --require("user.dap.dap-go")
-  require("user.dap.dap-python")
+  -- config per language
+  if is_windows_os then
+    require("user.dap.dap-cpp")
+    --require("user.dap.dap-go")
+    require("user.dap.dap-python")
+  else
+    -- require("user.dap.di-go")
+  end
   --require("user.dap.dap-lua")
   -- require("config.dap.python").setup()
   -- require("config.dap.rust").setup()
@@ -84,7 +90,7 @@ end
 function M.setup()
   config_dapi_and_sign()
   config_dapui()
-  config_debuggers() -- Debugger
+  config_debuggers()
 end
 
 return M

@@ -1,7 +1,7 @@
 # package manager
 packer.nvim
 ## Cannot check out github
-1. change the line in file ~\AppData\Local\nvim-data\site\pack\packer\start\packer.nvim\lua\packer.lua: 
+1. change the line in file ~\AppData\Local\nvim-data\site\pack\packer\start\packer.nvim\lua\packer.lua:
     default_url_format = 'git@github.com:%s.git'
 2. :PackerCompile
 3. check the outfile at compile_path = util.join_paths(vim.fn.stdpath('config'), 'plugin', 'packer_compiled.lua'),
@@ -113,13 +113,32 @@ cd /home/yingly/.local/share/nvim/site/pack/packer/start/sniprun
 ./install
 
 
-# dap
-debug adapter.
+# Debugger Tools
 
-## installation
-### mac
-1. brew install llvm, lldb-vscode is under /usr/local/Cellar/llvm/14.0.6_1/bin
-2. config cppdbg in /Users/luyaoying/github-repos/dotfiles/nvim/lua/user/dap/dap-cpp.lua
+1. nvim-dap: debug adapter protocol client
+2. DAPInstall.nvim: install debug adapter protocol clients, N/A for Windows, need to install debug adapters manually
+3. nvim-dap-ui: ui for nvim-dap
+
+## install
+### 1. insall nvim plugins using packer.nvim
+* config in plugins.lua
+* if auto install failed, then check out the plugin using git. For example, clone nvim-dap on Windows as following:  `git clone https://github.com/mfussenegger/nvim-dap.git ~\AppData\Local\nvim-data\site\pack\packer\start`
+
+### 2. language-specific configuration
+#### C++
+1. debugger adapter
+* windows: download .vsix from https://github.com/microsoft/vscode-cpptools/releases and unzip it to C:\cpptools-win64
+* mac: DIInstall ccppr_lldb
+
+2. language-specific debugger
+* windows: install MinGW, gdb to C:\MinGW\bin
+* mac: `brew install llvm`, lldb-vscode is under /usr/local/Cellar/llvm/14.0.6_1/bin
+
+## config
+configurations of debug are located at user/dap/.
+1. dap-config.lua: breakpoint signs, ui and config per language
+2. dap-cpp.lua: nvim adapter config for cpp
+3. di-cpp.lua: dapinstall config for cpp, N/A on Windows, no need to config dap-cpp.lua if di-cpp.lua is configured
 
 
 # tmux

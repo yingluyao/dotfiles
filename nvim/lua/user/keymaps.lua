@@ -131,19 +131,26 @@ keymap("n", "<leader>u", "<cmd>Trouble lsp_references<cr>", opts)
 keymap("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
 
 -- debug
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'user.dap.dap-util'.store_breakpoints(true)<cr>", opts)
-keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts)
--- keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts)
-keymap("n", "<F9>", "<cmd>lua require'dap'.run_last()<cr>", opts)
-keymap('n', '<F10>', '<cmd>lua require"user.dap.dap-util".reload_continue()<CR>', opts)
-keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<cr>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint(); require'user.dap.dap-util'.store_breakpoints(true)<cr>", opts)
+keymap("n", "<CS-F9>", "<cmd>lua require'dap'.clear_breakpoints(); require'user.dap.dap-util'.store_breakpoints(true)<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.list_breakpoints()<cr>", opts)
+
 keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<C-F5>", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<S-F5>", "<cmd>lua require'dap'.terminate()<cr>", opts)
+keymap('n', "<CS-F5>", "<cmd>lua require'user.dap.dap-util'.reload_continue()<cr>", opts)
+
+keymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<C-F10>", "<cmd>lua require'dap'.run_to_cursor()<cr>", opts)
+keymap("n", "<S-F10>", "<cmd>lua require'dap'.step_back()<cr>", opts)
+keymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<C-F11>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+
+keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dT", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "K", "<cmd>lua require'dapui'.eval()<cr>", opts)
--- keymap("n", "<leader>dt", "<cmd>lua require'dapui'.toggle()<cr>", opts)
--- keymap("n", "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- git diff view
 keymap('n', '<leader>j', ']c', opts)

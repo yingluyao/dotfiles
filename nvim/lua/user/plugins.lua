@@ -218,13 +218,15 @@ return packer.startup(function(use)
   -- use "nathom/filetype.nvim"
 
   -- Debugger
-  use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
-  use {
-    "ravenxrz/nvim-dap",
-    -- commit = "f9480362549e2b50a8616fe4530deaabbc4f889b",
+  if not is_windows_os then
+    use "Pocco81/DAPInstall.nvim"                      -- install debug adapter clients, no support for Windows
+  end
+  use "mfussenegger/nvim-dap"                          -- debug adapter protocol client
+  use {                                                -- ui for nvim-dap
+    "rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap"}
   }
   use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
   use "mfussenegger/nvim-dap-python"    -- debug python
   -- use { "leoluz/nvim-dap-go", module = "dap-go" } -- debug golang
   use { "jbyuki/one-small-step-for-vimkind", module = "osv" } -- debug any Lua code running in a Neovim instance
