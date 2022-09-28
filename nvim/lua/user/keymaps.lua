@@ -185,12 +185,12 @@ vim.cmd(
 -- keymap("n", "<leader>T", ":lua require('user.utils').GtagsText()<cr>", opts)
 
 -- floaterm
-keymap("n", "<space>tt", ":FloatermNew<CR>", opts)
-keymap("t", "<space>T", "<C-\\><C-n>:FloatermToggle<CR>", opts)
-keymap("t", "<space>k", "<C-\\><C-n>:FloatermKill<CR>", opts)
-keymap("t", "<space>K", "<C-\\><C-n>:FloatermKill!<CR>", opts)
-keymap("t", "<space>p", "<C-\\><C-n>:FloatermPrev<CR>", opts)
-keymap("t", "<space>n", "<C-\\><C-n>:FloatermNext<CR>", opts)
+keymap("n", "<C-f>", ":FloatermNew<CR>zsh<CR>", opts)
+keymap("t", "<C-t>", "<C-\\><C-n>:FloatermToggle<CR>", opts)
+keymap("t", "<C-k>", "<C-\\><C-n>:FloatermKill<CR>", opts)
+keymap("t", "<C-K>", "<C-\\><C-n>:FloatermKill!<CR>", opts)
+keymap("t", "<C-p>", "<C-\\><C-n>:FloatermPrev<CR>", opts)
+keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", opts)
 
 -- undotree
 keymap("n", "<space>uu", ":UndotreeToggle<CR>", opts)
